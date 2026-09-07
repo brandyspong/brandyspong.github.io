@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grant Systems — Brandy Spong</title>
+
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --text: #1e1e1b;
+      --muted: #6f6a61;
+      --line: #c9c1b5;
+      --accent: #8a4f36;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 36px 0 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .name, .back, .eyebrow, .section-title, .number, .label {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .name {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .back {
+      font-size: .82rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 90px 0 80px;
+      max-width: 900px;
+    }
+
+    .eyebrow, .section-title {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: .95;
+      font-weight: 400;
+      letter-spacing: -.04em;
+      margin: 20px 0 30px;
+    }
+
+    .intro {
+      font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+      max-width: 780px;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 70px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+    }
+
+    .body-copy {
+      max-width: 720px;
+      font-size: 1.15rem;
+    }
+
+    .body-copy p:first-child { margin-top: 0; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 45px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .flow-item {
+      padding: 28px 18px 30px 0;
+      min-height: 145px;
+      position: relative;
+    }
+
+    .flow-item:not(:last-child) {
+      border-right: 1px solid var(--line);
+      margin-right: 18px;
+    }
+
+    .number {
+      color: var(--accent);
+      font-size: .75rem;
+      letter-spacing: .08em;
+      margin-bottom: 18px;
+    }
+
+    .flow-item h3 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .system-note {
+      margin-top: 36px;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .components {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 50px;
+      margin-top: 40px;
+    }
+
+    .component {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .label {
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--accent);
+      font-size: .72rem;
+      margin-bottom: 8px;
+    }
+
+    .component h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0 0 8px;
+    }
+
+    .component p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .role {
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      line-height: 1.3;
+      max-width: 850px;
+      margin-top: 35px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 35px;
+    }
+
+    .skill {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .78rem;
+      border: 1px solid var(--line);
+      padding: 9px 13px;
+      border-radius: 30px;
+    }
+
+    footer {
+      padding: 36px 0 50px;
+      border-top: 1px solid var(--line);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    @media (max-width: 750px) {
+      .page { width: min(100% - 28px, 1120px); }
+
+      .two-column {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-item:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        margin-right: 0;
+      }
+
+      .components {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <div class="name">Brandy Spong</div>
+    <a class="back" href="index.html">← Selected Work</a>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <div class="eyebrow">01 — Grant Systems</div>
+
+      <h1>Designing an operating system for complex public funding.</h1>
+
+      <p class="intro">
+        A case study in turning overlapping funding rules, timelines,
+        fiscal data, and implementation requirements into a system
+        that supports both compliance and the people doing the work.
+      </p>
+    </div>
+
+    <section>
+      <div class="two-column">
+        <div class="section-title">Context</div>
+
+        <div class="body-copy">
+          <p>
+            In a large urban Bay Area school district serving more than
+            30,000 students, targeted state and federal funding moves
+            through multiple layers before it reaches students.
+          </p>
+
+          <p>
+            School eligibility, grant years, allocations, allowable uses,
+            procurement, contracts, payroll, spending deadlines and state
+            reporting each operate according to their own rules and timelines.
+            School leaders, meanwhile, need to translate those requirements
+            into actual programs, staffing and services.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="two-column">
+        <div class="section-title">The Challenge</div>
+
+        <div class="body-copy">
+          <p>
+            The challenge was not simply tracking a budget. It was creating
+            visibility across a system in which program decisions, fiscal
+            transactions, implementation status and reporting obligations
+            were interconnected but lived in different places.
+          </p>
+
+          <p>
+            A useful management system needed to answer practical questions:
+            Which schools are eligible for which funding? What has been
+            allocated? What is planned, encumbered or spent? What needs
+            action before a deadline? And what evidence will be needed
+            when it is time to report?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">The System</div>
+
+      <div class="flow">
+
+        <div class="flow-item">
+          <div class="number">01</div>
+          <h3>Grant Requirements</h3>
+        </div>
+
+        <div class="flow-item">
+          <div class="number">02</div>
+          <h3>Eligibility &amp; Allocation</h3>
+        </div>
+
+        <div class="flow-item">
+          <div class="number">03</div>
+          <h3>School Implementation</h3>
+        </div>
+
+        <div class="flow-item">
+          <div class="number">04</div>
+          <h3>Fiscal Monitoring</h3>
+        </div>
+
+        <div class="flow-item">
+          <div class="number">05</div>
+          <h3>Reporting &amp; Closeout</h3>
+        </div>
+
+      </div>
+
+      <p class="system-note">
+        The goal was not to create another standalone tracker. It was to
+        create a management layer connecting existing fiscal data,
+        program requirements, school-level implementation and reporting
+        deadlines so that each could inform the others.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">What the System Had to Do</div>
+
+      <div class="components">
+
+        <div class="component">
+          <div class="label">01</div>
+          <h3>Translate requirements</h3>
+          <p>
+            Turn grant rules, eligibility criteria and deadlines into
+            clear operational decisions for central teams and schools.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">02</div>
+          <h3>Connect fiscal and program data</h3>
+          <p>
+            Reconcile underlying financial-system data with program
+            categories, grant periods and implementation status.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">03</div>
+          <h3>Surface what needs attention</h3>
+          <p>
+            Make deadlines, unallocated funds, incomplete processes and
+            other implementation risks visible early enough to act.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">04</div>
+          <h3>Support school implementation</h3>
+          <p>
+            Translate central requirements into concrete next steps for
+            school leaders navigating staffing, purchasing, contracts
+            and program decisions.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">05</div>
+          <h3>Prepare for reporting</h3>
+          <p>
+            Organize information during implementation so reporting and
+            closeout are the end of the process—not a separate scramble
+            to reconstruct what happened.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">06</div>
+          <h3>Preserve human judgment</h3>
+          <p>
+            Use tools to surface information and structure decisions
+            while recognizing that implementation still depends on
+            context, communication and professional judgment.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">My Role</div>
+
+      <p class="role">
+        My role sits between policy and implementation: understanding
+        the requirements, identifying where systems break down, building
+        structures that make the work visible, and coordinating across
+        program, fiscal and school teams so that funding can move from
+        an allocation to meaningful implementation.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">What This Demonstrates</div>
+
+      <div class="skills">
+        <div class="skill">Systems Design</div>
+        <div class="skill">Grant Implementation</div>
+        <div class="skill">Program Management</div>
+        <div class="skill">Fiscal Monitoring</div>
+        <div class="skill">Compliance</div>
+        <div class="skill">Data Synthesis</div>
+        <div class="skill">Cross-Functional Leadership</div>
+        <div class="skill">School-Site Support</div>
+        <div class="skill">Policy → Practice</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="index.html">← Back to Brandy Spong</a>
+  </footer>
+
+</div>
+</body>
+</html>
