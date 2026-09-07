@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategic Planning — Brandy Spong</title>
+
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --text: #1e1e1b;
+      --muted: #6f6a61;
+      --line: #c9c1b5;
+      --accent: #8a4f36;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 36px 0 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .name, .back, .eyebrow, .section-title, .number, .label {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .name {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .back {
+      font-size: .82rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 90px 0 80px;
+      max-width: 930px;
+    }
+
+    .eyebrow, .section-title {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: .95;
+      font-weight: 400;
+      letter-spacing: -.04em;
+      margin: 20px 0 30px;
+    }
+
+    .intro {
+      font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+      max-width: 800px;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 70px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+    }
+
+    .body-copy {
+      max-width: 720px;
+      font-size: 1.15rem;
+    }
+
+    .body-copy p:first-child {
+      margin-top: 0;
+    }
+
+    /* Nested accountability system */
+
+    .system-levels {
+      margin-top: 42px;
+      border-top: 1px solid var(--line);
+    }
+
+    .system-level {
+      display: grid;
+      grid-template-columns: 90px 1fr 1.4fr;
+      gap: 28px;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+
+    .number {
+      color: var(--accent);
+      font-size: .75rem;
+      letter-spacing: .08em;
+    }
+
+    .system-level h3 {
+      margin: 0;
+      font-size: 1.45rem;
+      font-weight: 400;
+    }
+
+    .system-level p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Planning logic */
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 45px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .flow-item {
+      padding: 28px 18px 30px 0;
+      min-height: 150px;
+    }
+
+    .flow-item:not(:last-child) {
+      border-right: 1px solid var(--line);
+      margin-right: 18px;
+    }
+
+    .flow-item h3 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .system-note {
+      margin-top: 36px;
+      max-width: 800px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* Checks */
+
+    .checks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .check {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    .label {
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--accent);
+      font-size: .72rem;
+      margin-bottom: 10px;
+    }
+
+    .check h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0 0 10px;
+    }
+
+    .check p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Design principles */
+
+    .components {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 50px;
+      margin-top: 40px;
+    }
+
+    .component {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .component h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0 0 8px;
+    }
+
+    .component p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .role {
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      line-height: 1.3;
+      max-width: 900px;
+      margin-top: 35px;
+    }
+
+    .collaboration-note {
+      margin-top: 28px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 35px;
+    }
+
+    .skill {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .78rem;
+      border: 1px solid var(--line);
+      padding: 9px 13px;
+      border-radius: 30px;
+    }
+
+    footer {
+      padding: 36px 0 50px;
+      border-top: 1px solid var(--line);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    @media (max-width: 750px) {
+
+      .page {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .system-level {
+        grid-template-columns: 50px 1fr;
+      }
+
+      .system-level p {
+        grid-column: 2;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-item:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        margin-right: 0;
+      }
+
+      .checks,
+      .components {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <div class="name">Brandy Spong</div>
+    <a class="back" href="index.html">← Selected Work</a>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <div class="eyebrow">02 — Strategic Planning</div>
+
+      <h1>Designing for alignment across an interlocking system.</h1>
+
+      <p class="intro">
+        A case study in strengthening school improvement planning
+        within a larger district, county and state accountability
+        framework—connecting evidence, strategy, implementation
+        and resources without losing sight of the people doing the work.
+      </p>
+    </div>
+
+    <section>
+      <div class="two-column">
+
+        <div class="section-title">Context</div>
+
+        <div class="body-copy">
+          <p>
+            School improvement planning does not happen at the school
+            level alone. In a large urban Bay Area school district
+            serving more than 30,000 students, each school plan operates
+            within a larger district planning and accountability system,
+            which in turn sits within county and state frameworks for
+            school improvement.
+          </p>
+
+          <p>
+            The district also carries a long history of state and county
+            oversight. As a result, alignment, fiscal integrity,
+            documentation and statutory compliance are not theoretical
+            considerations. The planning system must work for school
+            communities while also standing up to multiple layers of
+            external and internal review.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+
+      <div class="section-title">The Accountability Environment</div>
+
+      <div class="system-levels">
+
+        <div class="system-level">
+          <div class="number">01</div>
+          <h3>State Framework</h3>
+          <p>
+            Statutory requirements, accountability expectations,
+            funding rules, planning requirements and statewide
+            measures of school performance.
+          </p>
+        </div>
+
+        <div class="system-level">
+          <div class="number">02</div>
+          <h3>County Oversight &amp; Support</h3>
+          <p>
+            Review, technical assistance and an additional layer
+            of accountability connecting state expectations with
+            district implementation.
+          </p>
+        </div>
+
+        <div class="system-level">
+          <div class="number">03</div>
+          <h3>District Planning &amp; Accountability</h3>
+          <p>
+            District goals, data systems, fiscal controls, program
+            requirements and cross-functional processes that establish
+            the operating environment for schools.
+          </p>
+        </div>
+
+        <div class="system-level">
+          <div class="number">04</div>
+          <h3>School Improvement Planning</h3>
+          <p>
+            School communities identify needs, examine evidence,
+            choose strategies, allocate resources and implement
+            improvements for students.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="system-note">
+        The challenge is not simply aligning four layers on paper.
+        Information and decisions need to remain coherent as they move
+        through the system—and each layer includes different people,
+        responsibilities and forms of accountability.
+      </p>
+
+    </section>
+
+    <section>
+      <div class="two-column">
+
+        <div class="section-title">The Challenge</div>
+
+        <div class="body-copy">
+
+          <p>
+            Traditional planning processes can fragment the work:
+            needs assessment in one place, performance data in another,
+            strategies somewhere else and expenditures in a separate
+            budget process.
+          </p>
+
+          <p>
+            That fragmentation makes it harder for school teams to see
+            the logic of their own plans—and harder for district teams
+            to determine whether resources, strategies and identified
+            needs actually align.
+          </p>
+
+          <p>
+            The design challenge was therefore larger than improving a
+            planning template. It was to strengthen the architecture
+            connecting school-level decision making to a broader
+            improvement and accountability system.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+
+      <div class="section-title">Planning Logic</div>
+
+      <div class="flow">
+
+        <div class="flow-item">
+          <div class="number">01</div>
+          <h3>Identified Need</h3>
+        </div>
+
+        <div class="flow-item">
+          <div class="number">02</div>
+          <h3>Metric &amp; Student Group</h3>
+        </div>
+
+        <div class="flow-item">
+          <div class="number">03</div>
+          <h3>Strategy</h3>
+        </div>
+
+        <div class="flow-item">
+          <div class="number">04</div>
+          <h3>Activity</h3>
+        </div>
+
+        <div class="flow-item">
+          <div class="number">05</div>
+          <h3>Expenditure</h3>
+        </div>
+
+      </div>
+
+      <p class="system-note">
+        The design creates a visible line from evidence to action:
+        what students need, how the need is measured, what the school
+        intends to do about it and how resources support that strategy.
+        Stable connections between these elements preserve traceability
+        as information moves through planning and budgeting.
+      </p>
+
+    </section>
+
+    <section>
+
+      <div class="section-title">Accountability Is Built In</div>
+
+      <div class="checks">
+
+        <div class="check">
+          <div class="label">Fiscal</div>
+          <h3>Do resources follow strategy?</h3>
+          <p>
+            Expenditures connect back to planned activities and
+            strategies rather than existing as an independent budget list.
+          </p>
+        </div>
+
+        <div class="check">
+          <div class="label">Programmatic</div>
+          <h3>Does strategy follow evidence?</h3>
+          <p>
+            Activities can be traced to identified student needs,
+            relevant measures and intended outcomes.
+          </p>
+        </div>
+
+        <div class="check">
+          <div class="label">Statutory</div>
+          <h3>Does the plan satisfy the larger framework?</h3>
+          <p>
+            School-level planning remains connected to district,
+            county and state requirements and accountability structures.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section>
+
+      <div class="section-title">Design Principles</div>
+
+      <div class="components">
+
+        <div class="component">
+          <div class="label">01</div>
+          <h3>Design from relationships, not sections</h3>
+          <p>
+            Structure the planning process around how needs, evidence,
+            strategies and resources relate—not around the order of
+            fields in a compliance document.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">02</div>
+          <h3>Make alignment visible</h3>
+          <p>
+            Give school and central teams a way to see whether the
+            reasoning connecting data, strategy and spending holds together.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">03</div>
+          <h3>Preserve traceability</h3>
+          <p>
+            Use stable connections between planning elements so that
+            decisions can be followed across needs assessment,
+            implementation, budgeting and review.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">04</div>
+          <h3>Reduce unnecessary complexity</h3>
+          <p>
+            Keep the school-facing planning experience as usable as
+            possible while maintaining the underlying structure required
+            for district and external accountability.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">05</div>
+          <h3>Design for multiple users</h3>
+          <p>
+            A planning system must work for principals and school teams
+            while also producing information usable by program, data,
+            fiscal and accountability teams.
+          </p>
+        </div>
+
+        <div class="component">
+          <div class="label">06</div>
+          <h3>Treat compliance as architecture</h3>
+          <p>
+            Build required checks into the structure of the process
+            rather than relying on a final compliance review to discover
+            disconnected decisions.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section>
+
+      <div class="section-title">My Role</div>
+
+      <p class="role">
+        My contribution has been to work across the boundaries between
+        school planning, program requirements, data, accountability and
+        fiscal implementation—helping translate a complex set of
+        requirements into a planning architecture that is both more
+        coherent and more usable.
+      </p>
+
+      <p class="collaboration-note">
+        This work is inherently collaborative. During my time in the
+        department, the district's planning systems have strengthened
+        substantially through the work of high-functioning teams across
+        multiple disciplines. My role has included identifying system
+        connections and gaps, contributing to process and tool design,
+        translating requirements across teams, and helping turn shared
+        ideas into operational structures.
+      </p>
+
+    </section>
+
+    <section>
+
+      <div class="section-title">What This Demonstrates</div>
+
+      <div class="skills">
+        <div class="skill">Systems Thinking</div>
+        <div class="skill">Strategic Planning</div>
+        <div class="skill">Information Architecture</div>
+        <div class="skill">School Improvement</div>
+        <div class="skill">Process Design</div>
+        <div class="skill">Cross-Functional Leadership</div>
+        <div class="skill">Fiscal &amp; Program Alignment</div>
+        <div class="skill">Accountability &amp; Compliance</div>
+        <div class="skill">Policy → Practice</div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="index.html">← Back to Brandy Spong</a>
+  </footer>
+
+</div>
+</body>
+</html>
